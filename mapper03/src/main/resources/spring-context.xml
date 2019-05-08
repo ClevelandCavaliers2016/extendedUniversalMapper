@@ -30,9 +30,9 @@
     <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.nn.study.mappers"/>
         <property name="properties">
-            <value>
-                mappers=com.nn.study.customMapper.BaseMapper
-            </value>
+                <value>
+                    mappers=com.nn.study.customMapper.BaseMapper
+                </value>
         </property>
     </bean>
 

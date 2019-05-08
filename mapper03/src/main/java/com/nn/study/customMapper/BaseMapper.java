@@ -10,5 +10,6 @@ public interface BaseMapper<T> extends
         SelectAllMapper<T>,
         SelectByExampleMapper<T>,
         SelectOneMapper<T>,
+        InsertMapper<T>,
         ExtendBatchUpdatesMapper<T>{
 }

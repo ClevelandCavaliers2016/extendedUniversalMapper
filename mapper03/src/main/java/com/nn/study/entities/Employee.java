@@ -1,25 +1,37 @@
 package com.nn.study.entities;
 
-import javax.persistence.*;
+import com.nn.study.handlers.AddressTypeHandler;
+import tk.mybatis.mapper.annotation.ColumnType;
 
-@Table(name="tabple_emp")
-public class Employee {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Table(name = "tabple_emp")
+public class Employee implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer empId;
     private String empName;
-    @Column(name="emp_salary")
+    @Column(name = "emp_salary")
     private Double empSalary;
+
     private Integer empAge;
+    @Column(name="seasonEnum")
+    private SeasonEnum seasonEnum;
+
+    //@ColumnType(typeHandler = AddressTypeHandler.class)
+    @Column
+    private Address address;
 
     public Employee() {
     }
 
-    public Employee(Integer empId, String empName, Double empSalary, Integer empAge) {
-        this.empId = empId;
+    public Employee(String empName, Double empSalary, Integer empAge, SeasonEnum seasonEnum, Address address) {
         this.empName = empName;
         this.empSalary = empSalary;
         this.empAge = empAge;
+        this.seasonEnum = seasonEnum;
+        this.address = address;
     }
 
     public Integer getEmpId() {
@@ -54,6 +66,22 @@ public class Employee {
         this.empAge = empAge;
     }
 
+    public SeasonEnum getSeasonEnum() {
+        return seasonEnum;
+    }
+
+    public void setSeasonEnum(SeasonEnum seasonEnum) {
+        this.seasonEnum = seasonEnum;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -61,6 +89,8 @@ public class Employee {
                 ", empName='" + empName + '\'' +
                 ", empSalary=" + empSalary +
                 ", empAge=" + empAge +
+                ", seasonEnum=" + seasonEnum +
+                ", address=" + address +
                 '}';
     }
 }

@@ -23,4 +23,8 @@ public class EmployeeService {
         employeeMapper.batchUpdate(list);
     }
 
+    public void saveEmployee(Employee employee){
+        employeeMapper.insert(employee);
+    }
+
 }
